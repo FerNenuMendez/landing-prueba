@@ -1,0 +1,116 @@
+---
+import { Scissors, MapPin, Phone, Clock, Mail, Calendar } from '@lucide/astro';
+import { BOOKING_URL, WHATSAPP_URL, PHONE_NUMBER, ADDRESS_TEXT, BUSINESS_HOURS } from '../constants';
+---
+
+<footer id="contacto" class="bg-[#07080c] border-t border-slate-900 pt-20 pb-8 relative">
+  <!-- Glowing Background Accent -->
+  <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-violet-950/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+      
+      <!-- Column 1: Brand & Socials -->
+      <div class="md:col-span-4 space-y-6">
+        <a href="#" class="flex items-center gap-2 group w-fit">
+          <div class="bg-violet-600 p-2 rounded-full text-white group-hover:rotate-45 transition-transform duration-300">
+            <Scissors class="w-4 h-4" />
+          </div>
+          <span class="font-bold text-xl tracking-tight text-white">
+            Peluquería <span class="text-violet-400">Carlitos</span>
+          </span>
+        </a>
+        <p class="text-slate-400 text-sm leading-relaxed font-light max-w-sm">
+          Tu barbería de confianza en la ciudad. Ofrecemos calidad, precisión y la mejor atención en cada corte. Reservá online tu turno en un par de clics.
+        </p>
+        <div class="flex items-center gap-3">
+          <a 
+            href="https://instagram.com/peluqueria_carlitos_fake" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="bg-slate-900 border border-slate-800 hover:border-violet-500/30 text-slate-400 hover:text-white p-2.5 rounded-xl transition-all"
+            aria-label="Instagram"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a 
+            href="https://facebook.com/peluqueria_carlitos_fake" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="bg-slate-900 border border-slate-800 hover:border-violet-500/30 text-slate-400 hover:text-white p-2.5 rounded-xl transition-all"
+            aria-label="Facebook"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Hours -->
+      <div class="md:col-span-4 space-y-6">
+        <h3 class="text-white font-bold tracking-tight text-lg relative w-fit">
+          Horarios de Atención
+          <span class="absolute bottom-0 left-0 w-8 h-0.5 bg-violet-500 rounded-full"></span>
+        </h3>
+        <ul class="space-y-3.5">
+          {BUSINESS_HOURS.map((item) => (
+            <li class="flex items-center gap-3 text-slate-400 text-sm font-light">
+              <Clock class="w-4 h-4 text-violet-400 shrink-0" />
+              <div>
+                <span class="font-medium text-slate-300">{item.days}:</span> {item.hours}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact Info & CTA -->
+      <div class="md:col-span-4 space-y-6">
+        <h3 class="text-white font-bold tracking-tight text-lg relative w-fit">
+          Contacto
+          <span class="absolute bottom-0 left-0 w-8 h-0.5 bg-violet-500 rounded-full"></span>
+        </h3>
+        <ul class="space-y-3.5">
+          <li class="flex items-start gap-3 text-slate-400 text-sm font-light">
+            <MapPin class="w-4 h-4 text-violet-400 shrink-0 mt-0.5" />
+            <span>{ADDRESS_TEXT}</span>
+          </li>
+          <li class="flex items-center gap-3 text-slate-400 text-sm font-light">
+            <Phone class="w-4 h-4 text-violet-400 shrink-0" />
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">{PHONE_NUMBER}</a>
+          </li>
+          <li class="flex items-center gap-3 text-slate-400 text-sm font-light">
+            <Mail class="w-4 h-4 text-violet-400 shrink-0" />
+            <a href="mailto:contacto@peluqueriacarlitos.com" class="hover:text-white transition-colors">contacto@peluqueriacarlitos.com</a>
+          </li>
+        </ul>
+        <div class="pt-2">
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-650 to-indigo-650 hover:from-violet-550 hover:to-indigo-550 text-white font-bold text-xs py-3.5 rounded-xl transition-all duration-300 shadow-md shadow-violet-650/15"
+          >
+            <Calendar class="w-4 h-4" />
+            Reservar Turno Ahora
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-slate-900/60 pt-8 mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-slate-500 font-light">
+      <p>&copy; {new Date().getFullYear()} Peluquería Carlitos. Todos los derechos reservados.</p>
+      <p>
+        Diseñado con la mayor velocidad por 
+        <span class="text-violet-400/80 font-semibold">Antigravity</span>
+      </p>
+    </div>
+  </div>
+</footer>

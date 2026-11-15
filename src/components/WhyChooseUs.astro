@@ -1,0 +1,76 @@
+---
+import { Clock, ShieldCheck, Coffee, CheckCircle } from '@lucide/astro';
+
+const values = [
+  {
+    title: 'Atención rápida y puntual',
+    description: 'Minimizamos esperas con nuestro sistema de turnos programados. Tu tiempo vale oro y nos organizamos para atenderte exactamente a tu hora.',
+    icon: Clock
+  },
+  {
+    title: 'Profesionales expertos',
+    description: 'Estilistas experimentados y apasionados por el detalle. Conocemos las últimas tendencias y las técnicas clásicas para lograr el acabado exacto que buscás.',
+    icon: ShieldCheck
+  },
+  {
+    title: 'Ambiente premium y relajado',
+    description: 'Disfrutá de música selecta, una cerveza fría o café de especialidad de cortesía en un espacio moderno diseñado para tu comodidad y relax.',
+    icon: Coffee
+  }
+];
+---
+
+<section id="elegirnos" class="py-20 md:py-28 bg-[#0b0c12]/60 border-y border-slate-800/40 relative overflow-hidden">
+  <!-- Soft background element -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-violet-800/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      
+      <!-- Left Column: Copy & Stat -->
+      <div class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <h2 class="text-xs uppercase tracking-widest text-violet-400 font-semibold mb-3">La Diferencia</h2>
+        <p class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-6">
+          ¿Por qué elegir <br class="hidden lg:block" /> Peluquería Carlitos?
+        </p>
+        <p class="text-slate-400 text-base leading-relaxed mb-8 max-w-md font-light">
+          No somos solo un lugar para cortarte el cabello. Ofrecemos una experiencia completa de cuidado personal en la cual sos el protagonista.
+        </p>
+        
+        <!-- Credibility Card -->
+        <div class="w-full bg-[#0d0e15]/50 border border-slate-800/80 p-5 rounded-2xl flex items-center gap-4">
+          <div class="bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 p-2.5 rounded-xl shrink-0">
+            <CheckCircle class="w-6 h-6" />
+          </div>
+          <div class="text-left">
+            <p class="text-sm font-bold text-white">Satisfacción 100% garantizada</p>
+            <p class="text-xs text-slate-400 font-light mt-0.5">Si no estás conforme con el resultado, lo solucionamos sin costo adicional.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Value Points -->
+      <div class="lg:col-span-7 space-y-8">
+        {values.map((val) => {
+          const Icon = val.icon;
+          return (
+            <div class="flex flex-col sm:flex-row gap-5 p-5 md:p-6 bg-[#0d0e15]/30 hover:bg-[#0d0e15]/65 border border-slate-850 rounded-2xl transition-all duration-300 group">
+              <div class="bg-violet-950/40 border border-violet-500/10 text-violet-400 p-4 rounded-xl shrink-0 w-fit h-fit group-hover:border-violet-500/30 group-hover:bg-violet-950/60 transition-colors duration-300">
+                <Icon class="w-6 h-6" />
+              </div>
+              <div class="space-y-1.5">
+                <h3 class="text-lg font-bold text-white group-hover:text-violet-400 transition-colors duration-300">
+                  {val.title}
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed font-light">
+                  {val.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+
+<Layout 
+	title="Peluquería Carlitos | Barbería & Estilismo Masculino Premium"
+	description="Descubrí una experiencia premium de barbería en Peluquería Carlitos. Cortes clásicos, degradados y perfilado de barba con atención puntual. ¡Reservá tu turno online ahora!"
+>
+	<!-- Main container -->
+	<main class="relative z-10 w-full">
+		<!-- Hero Section + Header Navigation -->
+		<Hero />
+		
+		<!-- Services Section -->
+		<Services />
+		
+		<!-- Why Choose Us Section -->
+		<WhyChooseUs />
+	</main>
+	
+	<!-- Footer Contact & Hours -->
+	<Footer />
+	
+	<!-- Floating WhatsApp CTA -->
+	<WhatsAppButton />
+</Layout>

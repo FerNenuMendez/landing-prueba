@@ -1,0 +1,107 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Peluquería Carlitos | Estilo y Tendencia Masculina", 
+	description = "En Peluquería Carlitos ofrecemos los mejores cortes clásicos, degradados y perfilados de barba. Reserva tu turno de forma rápida y online." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href={Astro.url.href} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/images/barber_hero.webp" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/images/barber_hero.webp" />
+
+		<!-- Schema.org JSON-LD Structured Data (LocalBusiness / HairSalon) -->
+		<script type="application/ld+json" is:inline>
+		{
+			"@context": "https://schema.org",
+			"@type": "HairSalon",
+			"name": "Peluquería Carlitos",
+			"image": "https://peluqueriacarlitos.libreagenda.com/images/barber_hero.webp",
+			"description": "Barbería & Estilismo Masculino Premium. Cortes clásicos, degradados y perfilado de barba.",
+			"priceRange": "$$",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "AR"
+			},
+			"openingHoursSpecification": [
+				{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+					"opens": "09:00",
+					"closes": "20:00"
+				}
+			]
+		}
+		</script>
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+		
+		<style>
+			/* Custom fonts mapping */
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Outfit', sans-serif;
+			}
+			
+			/* Custom scrollbar for premium dark theme */
+			::-webkit-scrollbar {
+				width: 8px;
+			}
+			::-webkit-scrollbar-track {
+				background: #090a0f;
+			}
+			::-webkit-scrollbar-thumb {
+				background: #1f2235;
+				border-radius: 4px;
+			}
+			::-webkit-scrollbar-thumb:hover {
+				background: #8b5cf6;
+			}
+		</style>
+	</head>
+	<body class="bg-[#090a0f] text-slate-100 min-h-screen overflow-x-hidden relative selection:bg-violet-600/30 selection:text-violet-200">
+		<!-- Background Glow Effects -->
+		<div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-violet-900/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+		<div class="absolute top-1/3 right-10 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+		<div class="absolute bottom-10 left-10 w-[500px] h-[500px] bg-purple-900/10 rounded-full blur-[130px] pointer-events-none -z-10"></div>
+		
+		<slot />
+	</body>
+</html>
